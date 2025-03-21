@@ -6,8 +6,7 @@ import Footer from "@/components/Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
-  showHeader?: boolean;
-  showFooter?: boolean;
+
 }
 
 const geistSans = Geist({
@@ -27,8 +26,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  showHeader = true,
-  showFooter = true,
 }: Readonly<LayoutProps>) {
   return (
     <html lang="en">
@@ -36,9 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="grid grid-rows-[20px_fr_20px] min-h-screen max-h-screen">
-          {showHeader && <Header />}
+          <Header />
           <main className="row-start-2 items">{children}</main>
-          {showFooter && <Footer />}
+          <Footer />
         </div>
       </body>
     </html>
